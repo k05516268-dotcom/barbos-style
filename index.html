@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Барбос-стиль - груминг-салон для собак</title>
+  <meta name="description" content="Груминг-салон «Барбос-стиль»: стрижка, мытьё, уход за когтями и ушами. Запись в один клик.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Навигация: автоконтраст через mix-blend-mode, без JavaScript -->
+  <header class="nav">
+    <a class="nav__logo" href="#top">Барбос-стиль</a>
+    <nav class="nav__links" id="navLinks">
+      <a href="#about">О нас</a>
+      <a href="#prices">Услуги и цены</a>
+      <a href="#process">Как проходит</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="#contact">Контакты</a>
+    </nav>
+    <a class="nav__cta" href="#contact">Записаться</a>
+    <button class="nav__burger" id="burger" aria-label="Открыть меню" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <!-- Вертикальная кнопка на правом краю, только большие экраны -->
+  <a class="side-cta" href="#contact">Записаться</a>
+
+  <!-- Первый экран: фото на весь экран, текст внизу слева, проявление по очереди -->
+  <section class="hero" id="top">
+    <img class="hero__img" src="img/hero-dog.png" alt="Априкот-пудель после стрижки сидит на столе грумера в тёплом тёмном интерьере салона">
+    <div class="hero__shade"></div>
+    <img class="hero__brand" src="img/logo.png" alt="Логотип «Барбос-стиль» - название салона с собачьей мордочкой в букве Б">
+    <div class="hero__content">
+      <p class="hero__eyebrow reveal">Груминг-салон для собак</p>
+      <h1 class="hero__title reveal">Барбос-<br>стиль</h1>
+      <p class="hero__sub reveal">Стрижём, моем и бережно ухаживаем.<br>Ваша собака вернётся домой красивой, довольной и пахнущей счастьем.</p>
+      <div class="hero__actions reveal">
+        <a class="btn btn--solid" href="#contact">Записаться<span class="btn__dot"></span></a>
+        <a class="btn btn--ghost" href="#prices">Услуги и цены<span class="btn__dot"></span></a>
+      </div>
+    </div>
+    <a class="hero__scroll" href="#about" aria-label="Листать вниз">
+      <svg width="14" height="22" viewBox="0 0 14 22" fill="none"><path d="M7 1v18m0 0l-5-5m5 5l5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </section>
+
+  <!-- О нас: разнесённый заголовок, асимметрия текст + фото, карусель услуг на фото -->
+  <section class="about section" id="about">
+    <div class="split-head split-head--center">
+      <h2 class="split-head__left">Почему</h2>
+      <h2 class="split-head__right">к нам</h2>
+    </div>
+    <div class="about__grid">
+      <figure class="about__media reveal">
+        <img src="img/grooming-hands.png" alt="Грумер подравнивает шерсть собаке ножницами в тёплом свете">
+        <figcaption>Работаем без наркоза и рывков - только терпение и лакомства</figcaption>
+
+        <!-- Карусель услуг: жирные геометрические плитки, наезд на фото -->
+        <div class="carousel">
+          <div class="carousel__track">
+            <a class="tile" href="#prices">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><circle cx="12" cy="36" r="5"/><path d="M16.5 15.5 40 36M16.5 32.5 40 12"/></svg>
+              <h3>Стрижка</h3><p>от 1 800 ₽</p>
+            </a>
+            <a class="tile tile--dark" href="#prices">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"><path d="M8 22a14 14 0 0 1 28 0"/><path d="M8 8v14M40 22v-8"/><path d="M12 30v3M20 32v3M28 32v3M36 30v3M16 38v3M24 40v3M32 38v3"/></svg>
+              <h3>Купание</h3><p>от 900 ₽</p>
+            </a>
+            <a class="tile" href="#prices">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><circle cx="14" cy="15" r="4"/><circle cx="24" cy="11" r="4"/><circle cx="34" cy="15" r="4"/><path d="M24 25c-7 0-11 5-11 10a11 8 0 0 0 22 0c0-5-4-10-11-10z"/></svg>
+              <h3>Когти</h3><p>от 600 ₽</p>
+            </a>
+            <a class="tile tile--dark" href="#prices">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"><rect x="9" y="11" width="30" height="9" rx="2"/><path d="M14 20v16M21 20v16M28 20v16M35 20v16"/></svg>
+              <h3>Расчёска</h3><p>входит в комплекс</p>
+            </a>
+            <a class="tile" href="#prices">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"><path d="M8 17h22a6 6 0 1 0-6-6M8 27h30a6 6 0 1 1-6 6M8 37h16"/></svg>
+              <h3>Фен и сушка</h3><p>бережный режим</p>
+            </a>
+            <a class="tile tile--dark" href="#prices">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"><path d="M24 7l4.5 13 13 4-13 4-4.5 13-4.5-13-13-4 13-4z"/></svg>
+              <h3>Комплекс</h3><p>от 2 500 ₽</p>
+            </a>
+            <!-- дубль набора для бесшовной прокрутки -->
+            <a class="tile" href="#prices" aria-hidden="true" tabindex="-1">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><circle cx="12" cy="36" r="5"/><path d="M16.5 15.5 40 36M16.5 32.5 40 12"/></svg>
+              <h3>Стрижка</h3><p>от 1 800 ₽</p>
+            </a>
+            <a class="tile tile--dark" href="#prices" aria-hidden="true" tabindex="-1">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"><path d="M8 22a14 14 0 0 1 28 0"/><path d="M8 8v14M40 22v-8"/><path d="M12 30v3M20 32v3M28 32v3M36 30v3M16 38v3M24 40v3M32 38v3"/></svg>
+              <h3>Купание</h3><p>от 900 ₽</p>
+            </a>
+            <a class="tile" href="#prices" aria-hidden="true" tabindex="-1">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><circle cx="14" cy="15" r="4"/><circle cx="24" cy="11" r="4"/><circle cx="34" cy="15" r="4"/><path d="M24 25c-7 0-11 5-11 10a11 8 0 0 0 22 0c0-5-4-10-11-10z"/></svg>
+              <h3>Когти</h3><p>от 600 ₽</p>
+            </a>
+            <a class="tile tile--dark" href="#prices" aria-hidden="true" tabindex="-1">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"><rect x="9" y="11" width="30" height="9" rx="2"/><path d="M14 20v16M21 20v16M28 20v16M35 20v16"/></svg>
+              <h3>Расчёска</h3><p>входит в комплекс</p>
+            </a>
+            <a class="tile" href="#prices" aria-hidden="true" tabindex="-1">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"><path d="M8 17h22a6 6 0 1 0-6-6M8 27h30a6 6 0 1 1-6 6M8 37h16"/></svg>
+              <h3>Фен и сушка</h3><p>бережный режим</p>
+            </a>
+            <a class="tile tile--dark" href="#prices" aria-hidden="true" tabindex="-1">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"><path d="M24 7l4.5 13 13 4-13 4-4.5 13-4.5-13-13-4 13-4z"/></svg>
+              <h3>Комплекс</h3><p>от 2 500 ₽</p>
+            </a>
+          </div>
+        </div>
+      </figure>
+      <div class="about__text">
+        <p class="about__lead reveal">Мы не конвейер. На одну собаку отводится столько времени, сколько ей нужно, чтобы спокойно выстричься.</p>
+        <ul class="about__facts">
+          <li class="reveal"><strong>7 лет</strong><span>работаем с собаками любого характера - от чихуахуа до кавказцев</span></li>
+          <li class="reveal"><strong>12 000+</strong><span>стрижек за всё время, у каждой - своя карточка предпочтений питомца</span></li>
+          <li class="reveal"><strong>2 часа</strong><span>среднее время комплексного груминга, вас оповещаем по сообщению</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Услуги и цены: редакционный прайс-лист, без карточек в карточках -->
+  <section class="prices section section--alt" id="prices">
+    <div class="split-head">
+      <h2 class="split-head__left">Услуги</h2>
+      <h2 class="split-head__right">и цены</h2>
+    </div>
+    <ul class="price-list">
+      <li class="price-row reveal">
+        <div class="price-row__info"><h3>Комплексный груминг</h3><p>Купание, сушка, стрижка или тримминг, когти, уши, гигиенические зоны</p></div>
+        <span class="price-row__dots"></span>
+        <span class="price-row__value">от 2 500 ₽</span>
+      </li>
+      <li class="price-row reveal">
+        <div class="price-row__info"><h3>Стрижка по породе</h3><p>Модельная стрижка по стандарту породы или по вашему желанию</p></div>
+        <span class="price-row__dots"></span>
+        <span class="price-row__value">от 1 800 ₽</span>
+      </li>
+      <li class="price-row reveal">
+        <div class="price-row__info"><h3>Мытьё и сушка</h3><p>Подбор шампуня по типу шерсти, фен с регулировкой температуры</p></div>
+        <span class="price-row__dots"></span>
+        <span class="price-row__value">от 900 ₽</span>
+      </li>
+      <li class="price-row reveal">
+        <div class="price-row__info"><h3>Гигиена</h3><p>Когти, уши, гигиенические зоны, подушечки лап</p></div>
+        <span class="price-row__dots"></span>
+        <span class="price-row__value">от 600 ₽</span>
+      </li>
+      <li class="price-row reveal">
+        <div class="price-row__info"><h3>Дегидратация шерсти</h3><p>Удаление подшёрстка для собак с густой шерстью, облегчает линьку</p></div>
+        <span class="price-row__dots"></span>
+        <span class="price-row__value">от 1 200 ₽</span>
+      </li>
+    </ul>
+    <p class="prices__note">Точную стоимость называем после оценки шерсти - привозите питомца на бесплатный осмотр или пришлите фото.</p>
+    <div class="prices__cta reveal">
+      <a class="btn btn--dark" href="#contact">Записаться на стрижку<span class="btn__dot"></span></a>
+    </div>
+  </section>
+
+  <!-- Процесс: четыре крупных шага -->
+  <section class="process section" id="process">
+    <div class="split-head">
+      <h2 class="split-head__left">Как</h2>
+      <h2 class="split-head__right">проходит визит</h2>
+    </div>
+    <ol class="steps">
+      <li class="reveal"><span class="steps__num">01</span><h3>Запись</h3><p>Напишите нам в мессенджер или позвоните. Подберём удобное окно.</p></li>
+      <li class="reveal"><span class="steps__num">02</span><h3>Знакомство</h3><p>Даём собаке осмотреться, угощаем лакомством. Без спешки.</p></li>
+      <li class="reveal"><span class="steps__num">03</span><h3>Уход</h3><p>Моем, сушим, стрижём. Каждый этап - спокойно и с перерывами.</p></li>
+      <li class="reveal"><span class="steps__num">04</span><h3>Встреча</h3><p>Показываем результат, даём рекомендации по уходу дома.</p></li>
+    </ol>
+  </section>
+
+  <!-- Отзывы -->
+  <section class="reviews section section--alt" id="reviews">
+    <div class="split-head">
+      <h2 class="split-head__left">Хозяева</h2>
+      <h2 class="split-head__right">говорят</h2>
+    </div>
+    <div class="reviews__grid">
+      <blockquote class="reveal">
+        <p>«Наш пудель раньше трясся на пороге любого салона. Теперь бежит туда с радостью - видимо, тут его правда любят.»</p>
+        <cite>Марина и Бублик</cite>
+      </blockquote>
+      <blockquote class="reveal">
+        <p>«Стригут аккуратно, без шаблона: спросили, как мы хотим, и сделали даже лучше. Цена - как договаривались.»</p>
+        <cite>Олег, хозяин таксы Кнопки</cite>
+      </blockquote>
+      <figure class="reviews__media reveal">
+        <img src="img/salon-dog-v2.png" alt="Белая собака с банданой сидит в уютном тёмном интерьере салона">
+      </figure>
+    </div>
+  </section>
+
+  <!-- Контакты и запись: тёмная секция -->
+  <section class="contact section section--dark" id="contact">
+    <div class="split-head split-head--dark">
+      <h2 class="split-head__left">Записывайтесь</h2>
+      <h2 class="split-head__right">к нам</h2>
+    </div>
+    <div class="contact__grid">
+      <div class="contact__info reveal">
+        <p class="contact__lead">Напишите в мессенджер или позвоните - договоримся об удобном времени за минуту.</p>
+        <div class="contact__row"><span>Телефон</span><a href="tel:+79990000000">+7 (999) 000-00-00</a></div>
+        <div class="contact__row"><span>Адрес</span><address>ул. Примерная, 10</address></div>
+        <div class="contact__row"><span>Часы</span><p>Ежедневно 10:00 - 20:00</p></div>
+      </div>
+      <div class="contact__actions reveal">
+        <a class="btn btn--cream" href="#">Написать в Telegram<span class="btn__dot"></span></a>
+        <a class="btn btn--cream" href="#">Написать в WhatsApp<span class="btn__dot"></span></a>
+        <a class="btn btn--outline-cream" href="tel:+79990000000">Позвонить<span class="btn__dot"></span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer__grid">
+      <div>
+        <p class="footer__logo">Барбос-стиль</p>
+        <p class="footer__muted">Груминг-салон для собак</p>
+      </div>
+      <nav class="footer__links" aria-label="Навигация в подвале">
+        <a href="#about">О нас</a>
+        <a href="#prices">Услуги и цены</a>
+        <a href="#process">Как проходит</a>
+        <a href="#reviews">Отзывы</a>
+      </nav>
+      <div class="footer__contacts">
+        <a href="tel:+79990000000">+7 (999) 000-00-00</a>
+        <a href="#">Telegram</a>
+        <a href="#">WhatsApp</a>
+      </div>
+    </div>
+    <p class="footer__legal">Сайт-одностраничник «Барбос-стиль». Телефон, адрес и мессенджеры - заглушки, замените на реальные.</p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
