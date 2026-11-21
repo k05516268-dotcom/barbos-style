@@ -49,11 +49,8 @@ img { display: block; max-width: 100%; }
   letter-spacing: 0.01em;
   text-decoration: none;
   border: 0.15rem solid currentColor;
-  cursor: pointer;
   transition: background 300ms var(--ease-out), color 300ms var(--ease-out), border-color 300ms var(--ease-out);
 }
-
-.btn:disabled { opacity: 0.45; cursor: default; pointer-events: none; }
 
 .btn__dot {
   width: 6px;
@@ -218,13 +215,12 @@ img { display: block; max-width: 100%; }
   color: var(--ink-on-dark);
 }
 
-/* логотип-плашка вверху по центру первого экрана, увеличен вдвое, фон прозрачный */
+/* логотип-плашка в левом верхнем углу первого экрана */
 .hero__brand {
   position: absolute;
-  top: calc(clamp(70px, 10vh, 100px) - 13px);
-  left: 50%;
-  transform: translateX(-50%);
-  width: clamp(300px, 34vw, 448px);
+  top: clamp(76px, 11vh, 108px);
+  left: clamp(20px, 4vw, 56px);
+  width: clamp(150px, 17vw, 224px);
   border-radius: 4px;
 }
 
@@ -246,14 +242,11 @@ img { display: block; max-width: 100%; }
   margin-bottom: 22px;
 }
 
-/* подзаголовок увеличен вдвое, ярко-белый, с мягкой тенью для читаемости на фото */
 .hero__sub {
-  font-size: clamp(16px, 2.6vw, 36px);
-  font-weight: 500;
-  line-height: 1.45;
-  color: #ffffff;
-  text-shadow: 0 2px 18px rgba(20, 9, 3, 0.45);
-  max-width: 1180px;
+  font-size: clamp(15px, 1.6vw, 18px);
+  line-height: 1.65;
+  color: var(--muted-on-dark);
+  max-width: 560px;
   margin-bottom: 32px;
 }
 
@@ -379,15 +372,13 @@ img { display: block; max-width: 100%; }
 
 .split-head--dark h2 { color: var(--ink-on-dark); }
 
-/* центрированный вариант: одна строка по центру.
-   Промежуток между частями заголовка задаём в em от размера самого заголовка,
-   иначе он считается от мелкого шрифта страницы и слова слипаются */
+/* центрированный вариант: одна строка по центру */
 .split-head--center {
   justify-content: center;
-  gap: 0;
+  gap: 0.3em;
 }
 
-.split-head--center .split-head__right { align-self: auto; margin-left: 0.35em; }
+.split-head--center .split-head__right { align-self: auto; }
 
 /* ---------- О нас ---------- */
 
@@ -638,339 +629,6 @@ img { display: block; max-width: 100%; }
   padding-top: 24px;
 }
 
-/* ---------- Онлайн-запись: всплывающее окно с шагами ---------- */
-
-.booking {
-  position: fixed;
-  inset: 0;
-  z-index: 90;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 16px;
-}
-
-.booking[hidden] { display: none; }
-
-.booking__overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(20, 10, 4, 0.66);
-  backdrop-filter: blur(3px);
-}
-
-.booking__panel {
-  position: relative;
-  width: min(560px, 100%);
-  max-height: calc(100svh - 32px);
-  overflow: auto;
-  background: var(--cream);
-  color: var(--ink);
-  border-radius: 14px;
-  padding: clamp(24px, 4vw, 40px);
-  box-shadow: 0 24px 80px rgba(20, 10, 4, 0.4);
-}
-
-.booking__close {
-  position: absolute;
-  top: 12px;
-  right: 16px;
-  background: none;
-  border: 0;
-  font-size: 30px;
-  line-height: 1;
-  cursor: pointer;
-  color: var(--ink);
-  opacity: 0.55;
-}
-
-.booking__close:hover { opacity: 1; }
-
-.booking__title {
-  font-family: var(--font-display);
-  font-size: clamp(24px, 3vw, 32px);
-  font-weight: 600;
-  margin-bottom: 18px;
-}
-
-/* индикатор трёх шагов */
-.booking__progress {
-  list-style: none;
-  display: flex;
-  gap: 8px;
-  margin-bottom: 26px;
-}
-
-.booking__progress li {
-  flex: 1;
-  text-align: center;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 8px 4px;
-  color: rgba(42, 22, 13, 0.45);
-  border-bottom: 2px solid rgba(42, 22, 13, 0.16);
-}
-
-.booking__progress li.is-active { color: var(--ink); border-color: var(--accent-deep); }
-.booking__progress li.is-done { color: var(--accent-deep); border-color: var(--accent-deep); }
-
-/* календарь */
-.booking__cal-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 12px;
-}
-
-.booking__cal-title {
-  font-family: var(--font-display);
-  font-size: 20px;
-  font-weight: 600;
-  text-transform: capitalize;
-}
-
-.booking__cal-nav {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 1px solid rgba(42, 22, 13, 0.28);
-  background: none;
-  font-size: 20px;
-  line-height: 1;
-  cursor: pointer;
-  transition: background 200ms var(--ease-out), border-color 200ms var(--ease-out);
-}
-
-.booking__cal-nav:hover:not(:disabled) { background: var(--accent); border-color: var(--accent); }
-.booking__cal-nav:disabled { opacity: 0.3; cursor: default; }
-
-.booking__cal-week,
-.booking__cal-grid {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 6px;
-}
-
-.booking__cal-week { margin-bottom: 6px; }
-
-.booking__cal-week span {
-  text-align: center;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  color: rgba(42, 22, 13, 0.5);
-}
-
-.booking__day {
-  aspect-ratio: 1;
-  border: 1px solid transparent;
-  border-radius: 8px;
-  background: none;
-  font: inherit;
-  font-size: 15px;
-  cursor: pointer;
-  transition: background 200ms var(--ease-out), color 200ms var(--ease-out), border-color 200ms var(--ease-out);
-}
-
-.booking__day:hover:not(:disabled):not(.booking__day--selected) { border-color: var(--accent-deep); }
-.booking__day:disabled { color: rgba(42, 22, 13, 0.28); cursor: default; }
-.booking__day--today { border-color: rgba(42, 22, 13, 0.3); }
-.booking__day--selected { background: var(--brown); color: var(--ink-on-dark); }
-.booking__day--empty { visibility: hidden; }
-
-/* график смены: отдельный блок для каждого мастера */
-.booking__schedule {
-  display: grid;
-  gap: 14px;
-  margin-bottom: 22px;
-}
-
-.booking__shift-block {
-  border: 1px solid rgba(42, 22, 13, 0.2);
-  border-radius: 10px;
-  padding: 14px;
-}
-
-/* мастер не в смене в выбранный день */
-.booking__shift-block.is-off { opacity: 0.45; }
-
-.booking__shift-head {
-  display: flex;
-  align-items: baseline;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-bottom: 10px;
-}
-
-.booking__shift-head strong {
-  font-family: var(--font-display);
-  font-size: 18px;
-  font-weight: 600;
-}
-
-.booking__shift-head span { font-size: 12px; color: rgba(42, 22, 13, 0.6); }
-
-.booking__shift-block .booking__slots { margin-bottom: 0; }
-
-/* подсказка под календарём: кто в смене в выбранный день */
-.booking__shift {
-  margin: 14px 0 20px;
-  font-size: 13px;
-  text-align: center;
-  color: rgba(42, 22, 13, 0.7);
-}
-
-.booking__shift strong { color: var(--accent-deep); }
-
-/* временные окна */
-.booking__slots-title { font-size: 14px; margin-bottom: 12px; color: rgba(42, 22, 13, 0.75); }
-
-.booking__slots {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(86px, 1fr));
-  gap: 8px;
-  margin-bottom: 10px;
-}
-
-/* подсказка-приглашение выбрать окно у одного из мастеров */
-.booking__slots-hint {
-  font-size: 14px;
-  color: rgba(42, 22, 13, 0.75);
-  margin-bottom: 14px;
-}
-
-.booking__slot {
-  padding: 10px 6px;
-  border-radius: 8px;
-  border: 1px solid rgba(42, 22, 13, 0.28);
-  background: none;
-  font: inherit;
-  font-size: 15px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 200ms var(--ease-out), border-color 200ms var(--ease-out);
-}
-
-.booking__slot small { display: block; font-size: 11px; font-weight: 400; color: rgba(42, 22, 13, 0.55); }
-
-.booking__slot:hover:not(:disabled):not(.is-selected) { border-color: var(--accent-deep); }
-.booking__slot:disabled { opacity: 0.35; text-decoration: line-through; cursor: default; }
-.booking__slot.is-selected { background: var(--accent); border-color: var(--accent); color: var(--brown); }
-.booking__slot.is-selected small { color: rgba(42, 22, 13, 0.65); }
-
-/* форма контактов */
-.booking__fields { display: grid; gap: 14px; margin-bottom: 16px; }
-
-.booking__field { display: grid; gap: 6px; font-size: 13px; font-weight: 600; }
-
-.booking__field input {
-  font: inherit;
-  font-weight: 400;
-  padding: 12px 14px;
-  border: 1px solid rgba(42, 22, 13, 0.3);
-  border-radius: 8px;
-  background: #ffffff;
-}
-
-.booking__field input:focus { outline: 2px solid var(--accent-deep); outline-offset: 1px; }
-
-.booking__channel {
-  border: 1px solid rgba(42, 22, 13, 0.2);
-  border-radius: 8px;
-  padding: 12px 14px;
-  margin-bottom: 14px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 18px;
-}
-
-.booking__channel legend { font-size: 12px; font-weight: 600; padding: 0 6px; }
-.booking__channel label { display: flex; align-items: center; gap: 6px; font-size: 14px; }
-
-.booking__consent {
-  display: flex;
-  gap: 10px;
-  align-items: flex-start;
-  font-size: 14px;
-  font-weight: 600;
-  margin-bottom: 12px;
-  cursor: pointer;
-}
-
-.booking__consent input { margin-top: 2px; }
-
-.booking__policy { font-size: 12.5px; color: rgba(42, 22, 13, 0.65); margin-bottom: 12px; }
-.booking__policy summary { cursor: pointer; font-weight: 600; }
-.booking__policy p { margin-top: 6px; }
-
-/* памятка о форс-мажоре */
-.booking__force {
-  font-size: 12.5px;
-  line-height: 1.55;
-  color: rgba(42, 22, 13, 0.7);
-  background: rgba(201, 168, 106, 0.16);
-  border-left: 3px solid var(--accent-deep);
-  padding: 10px 12px;
-  border-radius: 0 8px 8px 0;
-  margin-bottom: 14px;
-}
-
-.booking__error { color: #a3362a; font-size: 13px; font-weight: 600; margin-bottom: 10px; }
-
-.booking__actions {
-  display: flex;
-  gap: 12px;
-  justify-content: flex-end;
-  flex-wrap: wrap;
-  margin-top: 8px;
-}
-
-.btn--back { background: none; border-color: rgba(42, 22, 13, 0.35); color: var(--ink); }
-.btn--back:hover { background: rgba(42, 22, 13, 0.06); }
-
-/* подтверждение */
-.booking__step--done { text-align: center; }
-
-.booking__done-badge {
-  width: 64px;
-  height: 64px;
-  margin: 0 auto 16px;
-  border-radius: 50%;
-  background: var(--accent);
-  color: var(--brown);
-  font-size: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.booking__done-title {
-  font-family: var(--font-display);
-  font-size: 26px;
-  font-weight: 600;
-  margin-bottom: 8px;
-}
-
-.booking__done-num { font-size: 14px; margin-bottom: 18px; }
-
-.booking__summary {
-  text-align: left;
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 8px 18px;
-  font-size: 14px;
-  max-width: 380px;
-  margin: 0 auto 16px;
-}
-
-.booking__summary dt { color: rgba(42, 22, 13, 0.55); }
-.booking__summary dd { font-weight: 600; }
-
-.booking__step--done .booking__force { text-align: left; }
-.booking__step--done .booking__actions { justify-content: center; }
-
 /* ---------- Адаптив ---------- */
 
 @media (max-width: 1000px) {
@@ -1009,7 +667,7 @@ img { display: block; max-width: 100%; }
 
   .split-head { flex-direction: column; gap: 4px; }
   .split-head__right { align-self: flex-end; }
-  .split-head--center { flex-direction: row; gap: 0; }
+  .split-head--center { flex-direction: row; gap: 0.3em; }
 
   /* на телефоне название чуть ниже, чтобы не ложиться на морду собаки */
   .hero__content { bottom: clamp(90px, 15vh, 150px); }
@@ -1026,8 +684,4 @@ img { display: block; max-width: 100%; }
   .price-row { flex-wrap: wrap; }
   .price-row__dots { display: none; }
   .hero__img { object-position: 70% center; }
-
-  /* окно записи на телефоне - во весь экран с небольшими полями */
-  .booking { padding: 8px; }
-  .booking__panel { border-radius: 10px; }
 }

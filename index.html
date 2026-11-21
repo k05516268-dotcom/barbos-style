@@ -22,26 +22,26 @@
       <a href="#reviews">Отзывы</a>
       <a href="#contact">Контакты</a>
     </nav>
-    <a class="nav__cta" href="#booking" data-booking-open>Записаться</a>
+    <a class="nav__cta" href="#contact">Записаться</a>
     <button class="nav__burger" id="burger" aria-label="Открыть меню" aria-expanded="false">
       <span></span><span></span>
     </button>
   </header>
 
   <!-- Вертикальная кнопка на правом краю, только большие экраны -->
-  <a class="side-cta" href="#booking" data-booking-open>Записаться</a>
+  <a class="side-cta" href="#contact">Записаться</a>
 
   <!-- Первый экран: фото на весь экран, текст внизу слева, проявление по очереди -->
   <section class="hero" id="top">
     <img class="hero__img" src="img/hero-dog.png" alt="Априкот-пудель после стрижки сидит на столе грумера в тёплом тёмном интерьере салона">
     <div class="hero__shade"></div>
-    <img class="hero__brand" src="img/logo-transparent.png" alt="Логотип «Барбос-стиль» - название салона с собачьей мордочкой в букве Б">
+    <img class="hero__brand" src="img/logo.png" alt="Логотип «Барбос-стиль» - название салона с собачьей мордочкой в букве Б">
     <div class="hero__content">
       <p class="hero__eyebrow reveal">Груминг-салон для собак</p>
       <h1 class="hero__title reveal">Барбос-<br>стиль</h1>
       <p class="hero__sub reveal">Стрижём, моем и бережно ухаживаем.<br>Ваша собака вернётся домой красивой, довольной и пахнущей счастьем.</p>
       <div class="hero__actions reveal">
-        <a class="btn btn--solid" href="#booking" data-booking-open>Записаться здесь<span class="btn__dot"></span></a>
+        <a class="btn btn--solid" href="#contact">Записаться<span class="btn__dot"></span></a>
         <a class="btn btn--ghost" href="#prices">Услуги и цены<span class="btn__dot"></span></a>
       </div>
     </div>
@@ -129,7 +129,7 @@
 
   <!-- Услуги и цены: редакционный прайс-лист, без карточек в карточках -->
   <section class="prices section section--alt" id="prices">
-    <div class="split-head split-head--center">
+    <div class="split-head">
       <h2 class="split-head__left">Услуги</h2>
       <h2 class="split-head__right">и цены</h2>
     </div>
@@ -162,13 +162,13 @@
     </ul>
     <p class="prices__note">Точную стоимость называем после оценки шерсти - привозите питомца на бесплатный осмотр или пришлите фото.</p>
     <div class="prices__cta reveal">
-      <a class="btn btn--dark" href="#booking" data-booking-open>Записаться на стрижку онлайн<span class="btn__dot"></span></a>
+      <a class="btn btn--dark" href="#contact">Записаться на стрижку<span class="btn__dot"></span></a>
     </div>
   </section>
 
   <!-- Процесс: четыре крупных шага -->
   <section class="process section" id="process">
-    <div class="split-head split-head--center">
+    <div class="split-head">
       <h2 class="split-head__left">Как</h2>
       <h2 class="split-head__right">проходит визит</h2>
     </div>
@@ -182,7 +182,7 @@
 
   <!-- Отзывы -->
   <section class="reviews section section--alt" id="reviews">
-    <div class="split-head split-head--center">
+    <div class="split-head">
       <h2 class="split-head__left">Хозяева</h2>
       <h2 class="split-head__right">говорят</h2>
     </div>
@@ -203,7 +203,7 @@
 
   <!-- Контакты и запись: тёмная секция -->
   <section class="contact section section--dark" id="contact">
-    <div class="split-head split-head--dark split-head--center">
+    <div class="split-head split-head--dark">
       <h2 class="split-head__left">Записывайтесь</h2>
       <h2 class="split-head__right">к нам</h2>
     </div>
@@ -246,97 +246,6 @@
       <span aria-label="NeuroStudio" style="font-weight:700;white-space:nowrap;"><span style="color:#FF704D;font-size:18px;">N</span><span style="color:#59D8C6;font-size:18px;margin-left:-2px;">S</span><span style="margin-left:4px;">NeuroStudio</span></span>
     </div>
   </footer>
-
-  <!-- Онлайн-запись: календарь -> мастер и время -> контакты. Открывается кнопками data-booking-open -->
-  <div class="booking" id="booking" role="dialog" aria-modal="true" aria-labelledby="bookingTitle" hidden>
-    <div class="booking__overlay" data-booking-close></div>
-    <div class="booking__panel">
-      <button class="booking__close" type="button" data-booking-close aria-label="Закрыть окно записи">×</button>
-      <h2 class="booking__title" id="bookingTitle">Онлайн-запись</h2>
-      <ol class="booking__progress" id="bookingProgress">
-        <li data-dot="1">Дата</li>
-        <li data-dot="2">Мастер и время</li>
-        <li data-dot="3">Контакты</li>
-      </ol>
-
-      <!-- Шаг 1: календарь -->
-      <section class="booking__step" data-step="1">
-        <div class="booking__cal-head">
-          <button class="booking__cal-nav" type="button" data-cal-prev aria-label="Предыдущий месяц">‹</button>
-          <p class="booking__cal-title" id="calTitle"></p>
-          <button class="booking__cal-nav" type="button" data-cal-next aria-label="Следующий месяц">›</button>
-        </div>
-        <div class="booking__cal-week" aria-hidden="true">
-          <span>Пн</span><span>Вт</span><span>Ср</span><span>Чт</span><span>Пт</span><span>Сб</span><span>Вс</span>
-        </div>
-        <div class="booking__cal-grid" id="calGrid"></div>
-        <p class="booking__shift" id="shiftInfo" hidden></p>
-        <div class="booking__actions">
-          <button class="btn btn--dark" type="button" data-next disabled>Выбрать время<span class="btn__dot"></span></button>
-        </div>
-      </section>
-
-      <!-- Шаг 2: график каждого мастера смены отдельным блоком -->
-      <section class="booking__step" data-step="2" hidden>
-        <p class="booking__slots-title">График на <span id="slotsDate"></span>. У каждого мастера свой график: 4 приёма по 2 часа, обед 14:00 - 15:00. Вдвоём мастера принимают до 8 собак в день.</p>
-        <p class="booking__slots-hint">Выберите свободное окно у одного из двух мастеров:</p>
-        <div class="booking__schedule" id="scheduleWrap"></div>
-        <div class="booking__actions">
-          <button class="btn btn--back" type="button" data-back>Назад</button>
-          <button class="btn btn--dark" type="button" data-next disabled>Контакты<span class="btn__dot"></span></button>
-        </div>
-      </section>
-
-      <!-- Шаг 3: контакты, согласие по ФЗ-152, договорённость о форс-мажоре -->
-      <section class="booking__step" data-step="3" hidden>
-        <form id="bookingForm" novalidate>
-          <div class="booking__fields">
-            <label class="booking__field">Ваше имя
-              <input type="text" id="bfName" autocomplete="name" placeholder="Как к вам обращаться" required>
-            </label>
-            <label class="booking__field">Телефон
-              <input type="tel" id="bfPhone" autocomplete="tel" inputmode="tel" placeholder="+7 (___) ___-__-__" required>
-            </label>
-            <label class="booking__field">Кличка собаки
-              <input type="text" id="bfDog" placeholder="Чтобы мастер подготовился">
-            </label>
-          </div>
-          <fieldset class="booking__channel">
-            <legend>Как с вами связаться, если что-то пойдёт не так</legend>
-            <label><input type="radio" name="channel" value="звонок" checked> Звонок</label>
-            <label><input type="radio" name="channel" value="Telegram"> Telegram</label>
-            <label><input type="radio" name="channel" value="WhatsApp"> WhatsApp</label>
-          </fieldset>
-          <label class="booking__consent">
-            <input type="checkbox" id="bfConsent" required>
-            <span>Согласен на обработку персональных данных (ФЗ-152)</span>
-          </label>
-          <details class="booking__policy">
-            <summary>Что мы делаем с вашими данными</summary>
-            <p>Имя и телефон используются только для записи и связи по ней, третьим лицам не передаются и хранятся не дольше, чем нужно для оказания услуги. Вы в любой момент можете потребовать удалить свои данные - просто позвоните нам. Основание: ст. 6 ФЗ-152 «О персональных данных».</p>
-          </details>
-          <p class="booking__force">Если мастер заболеет или график салона изменится, мы заранее свяжемся с вами выбранным способом и перенесём запись на удобное время без потери очереди. Если планы поменялись у вас - позвоните +7 (999) 000-00-00, перенос бесплатный.</p>
-          <p class="booking__error" id="bookingError" hidden>Заполните имя, телефон и подтвердите согласие.</p>
-          <div class="booking__actions">
-            <button class="btn btn--back" type="button" data-back>Назад</button>
-            <button class="btn btn--dark" type="submit">Подтвердить запись<span class="btn__dot"></span></button>
-          </div>
-        </form>
-      </section>
-
-      <!-- Шаг 4: подтверждение -->
-      <section class="booking__step booking__step--done" data-step="4" hidden>
-        <p class="booking__done-badge">✓</p>
-        <h3 class="booking__done-title">Вы записаны!</h3>
-        <p class="booking__done-num">Номер записи: <strong id="bookingNum"></strong></p>
-        <dl class="booking__summary" id="bookingSummary"></dl>
-        <p class="booking__force">Сохраните номер записи. Если возникнут изменения с нашей стороны - свяжемся с вами заранее. Перенести или отменить визит можно по телефону +7 (999) 000-00-00.</p>
-        <div class="booking__actions">
-          <button class="btn btn--dark" type="button" data-booking-close>Готово<span class="btn__dot"></span></button>
-        </div>
-      </section>
-    </div>
-  </div>
 
   <script src="main.js"></script>
 </body>
